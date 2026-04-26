@@ -28,7 +28,17 @@ services:
       - laravel
     depends_on:
       - laravel-ap
-
+  node:
+      image: node:20-alpine
+      container_name: laravel_node
+      volumes:
+          - .:/var/www/html
+      working_dir: /var/www/html
+      ports:
+          - "5173:5173"
+      networks:
+          - laravel
+      tty: true
   mysql:
     image: mysql:8.0
     container_name: laravel_mysql
