@@ -2142,4 +2142,47 @@ textarea.w-select {
     .booking-cancel-btn {
         width: 100%;
     }
+
+    .hall-card {
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .hall-card:hover {
+        transform: translateY(-10px);
+        border-color: #0dcaf0 !important;
+    }
+
+    .time-slot {
+        transition: all 0.2s ease;
+    }
+
+    .time-slot:hover {
+        transform: scale(1.05);
+    }
+
+    .glass-card {
+        background: rgba(30, 30, 35, 0.9);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 1rem;
+    }
+
+    .form-control:focus, .form-select:focus {
+        border-color: #0dcaf0;
+        box-shadow: 0 0 0 0.2rem rgba(13, 202, 240, 0.25);
+        background-color: #212529;
+        color: white;
+    }
+
+    .btn-info {
+        background: linear-gradient(135deg, #0dcaf0 0%, #0b5ed7 100%);
+        border: none;
+        transition: transform 0.3s ease;
+    }
+
+    .btn-info:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(13, 202, 240, 0.3);
+    }
 }

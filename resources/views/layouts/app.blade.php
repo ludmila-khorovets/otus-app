@@ -12,6 +12,7 @@
     <link href="{{ Vite::asset('resources/images/webclip.png') }}" rel="apple-touch-icon" />
 
     @vite([
+        'resources/sass/app.scss',
         'resources/css/normalize.css',
         'resources/css/layout.css',
         'resources/css/style.css',
