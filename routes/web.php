@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Hall;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -7,12 +8,9 @@ Route::get('/', function () {
 });
 Route::get('/', function () {
 
-    $halls = [
-        ['id' => 1, 'name' => 'Марс', 'image' => 'hall9.jpg', 'cost' => 1000],
-        ['id' => 2, 'name' => 'Венера', 'image' => 'hall8.jpg', 'cost' => 1200],
-        ['id' => 3, 'name' => 'Сатурн', 'image' => 'hall10.jpg', 'cost' => 900],
-    ];
-    return view('home', ['halls' => $halls]);
+    $halls = Hall::all();
+
+    return view('home', compact('halls'));
 })->name('home');
 
 Route::get('/halls', function () {
