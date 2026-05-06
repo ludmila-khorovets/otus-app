@@ -8,13 +8,8 @@ enum BookingStatus: string
     case COMPLETED = 'completed';
     case CANCELLED = 'cancelled';
 
-    public static function all(): array
+    public static function values(): array
     {
-        return [
-            self::PENDING,
-            self::CONFIRMED,
-            self::COMPLETED,
-            self::CANCELLED,
-        ];
+        return array_column(self::cases(), 'value');
     }
 }
