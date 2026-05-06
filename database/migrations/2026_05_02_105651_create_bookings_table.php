@@ -21,7 +21,7 @@ return new class extends Migration
             $table->decimal('total_price')->unsigned();
             $table->integer('total_hours')->unsigned();
             $table->text('client_note')->nullable();
-            $table->enum('status', BookingStatus::all())->default('pending');
+            $table->enum('status', BookingStatus::values())->default('pending');
             $table->timestamps();
         });
     }
