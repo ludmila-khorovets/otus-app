@@ -35,7 +35,7 @@
                                 <div class="work-img-wrapp"><img src="{{ Vite::asset('resources/images/' . $hall['image']) }}"
                                                                  alt="" class="work-img"/></div>
                                 <h4 class="heading">{{ $hall['name'] }}</h4>
-                                <div class="work-category">от {{ $hall['cost'] }} р/час</div>
+                                <div class="work-category">от {{ $hall['price_weekday'] }} р/час</div>
                             </a>
                         </div>
                     @endforeach
