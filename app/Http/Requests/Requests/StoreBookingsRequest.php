@@ -22,7 +22,6 @@ class StoreBookingsRequest extends FormRequest
 
     public function prepareForValidation(): void
     {
-
         if ($this->filled('date') and $this->filled('time')) {
 
             $startAt = Carbon::parse($this->input('date') . ' ' . $this->input('time'));
@@ -49,7 +48,6 @@ class StoreBookingsRequest extends FormRequest
                 }),
             ]);
         }
-
     }
 
     /**

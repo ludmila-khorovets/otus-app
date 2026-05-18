@@ -27,7 +27,6 @@ class BookingController extends Controller
 
     public function store(StoreBookingsRequest $request)
     {
-
         $validated = $request->validated();
 
         $booking = Booking::create([

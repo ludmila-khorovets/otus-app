@@ -39,7 +39,6 @@ class HallRepository implements HallRepositoryInterface
 
     public function getPriceByDate(Hall $hall, ?Carbon $date = null): int
     {
-
         $targetDate = $date ?? now();
 
         return $targetDate ? $hall->price_weekday : $hall->price_weekend;
