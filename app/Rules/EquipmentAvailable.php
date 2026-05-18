@@ -42,10 +42,10 @@ class EquipmentAvailable implements ValidationRule, DataAwareRule
             $fail('Выбранное оборудование не найдено.');
         }
 
-        $statAt = $this->data['stat_at'] ?? null;
+        $startAt = $this->data['stat_at'] ?? null;
         $endAt = $this->data['end_at'] ?? null;
 
-        if (!$statAt || !$endAt) {
+        if (!$startAt || !$endAt) {
             return;
         }
 
@@ -55,7 +55,7 @@ class EquipmentAvailable implements ValidationRule, DataAwareRule
             $fail("Для оборудования '{$equipment->name}' указано недоступное количество. Всего в студии есть: {$equipment->total_quantity} шт.");
         }
 
-        $bookedQuantity = $this->equipmentRepository->getBookedQuantity($equipmentId);
+        $bookedQuantity = $this->equipmentRepository->getBookedQuantity($equipmentId, $startAt, $endAt);
 
         if (($bookedQuantity + $quantity) > $equipment->total_quantity) {
             $availableNow = $equipment->total_quantity - $bookedQuantity;
