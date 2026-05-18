@@ -17,9 +17,12 @@ class HallFactory extends Factory
      */
     public function definition(): array
     {
+        $fakerEn = \Faker\Factory::create('en_US');
+
         return [
-            'name' => $this->faker->randomElement(['Light Loft', 'Dark Studio', 'Classic Room', 'Neo Neon', 'White Cube']),
-            'description' => $this->faker->sentence(15),
+            'name' => $fakerEn->city,
+            'is_active' => $this->faker->boolean(),
+            'description' => $this->faker->sentence(20),
             'image' => 'hall' . $this->faker->numberBetween(1, 7) . '.jpg',
             'price_weekday' => $this->faker->numberBetween(1500, 3000),
             'price_weekend' => $this->faker->numberBetween(3500, 5000),

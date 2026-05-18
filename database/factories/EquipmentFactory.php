@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Equipment;
+use App\Models\EquipmentCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,6 +19,7 @@ class EquipmentFactory extends Factory
     public function definition(): array
     {
         return [
+            'category_id' => EquipmentCategory::inRandomOrder()->first()?->id ?? EquipmentCategory::factory(),
             'name' => $this->faker->randomElement([
                 'Софтбокс 60x90', 'Вспышка Godox', 'Отражатель 5-в-1',
                 'Штатив Manfrotto', 'Дымомашина', 'Цветные фильтры'

@@ -17,7 +17,8 @@
         'resources/css/layout.css',
         'resources/css/style.css',
         'resources/js/jquery.min.js',
-        'resources/js/plugins.js'
+        'resources/js/plugins.js',
+        'resources/js/bootstrap.js'
     ])
 </head>
 
