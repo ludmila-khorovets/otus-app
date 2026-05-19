@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Requests;
+namespace App\Http\Requests;
 
 use App\Interfaces\Repository\EquipmentRepositoryInterface;
 use App\Interfaces\Repository\HallRepositoryInterface;
