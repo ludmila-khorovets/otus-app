@@ -16,6 +16,8 @@ return new class extends Migration
             $table->foreignId('booking_id')->constrained('bookings')->cascadeOnDelete();
             $table->foreignId('equipment_id')->constrained('equipment')->cascadeOnDelete();
             $table->integer('hours')->unsigned();
+            $table->decimal('price_per_hour')->unsigned();
+            $table->integer('quantity')->unsigned();
             $table->timestamps();
         });
     }

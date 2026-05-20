@@ -20,7 +20,7 @@
 
             <div class="main-title-box">
                 <h2 class="main-title">Наши залы</h2>
-                <a href="" class="all-projects">Все залы</a>
+                <a href="{{ route('halls') }}" class="all-projects">Все залы</a>
             </div>
 
             <div class="work-wrapper w-dyn-list">
@@ -43,4 +43,6 @@
             </div>
         </div>
     </div>
+
+    @include('components.comments-section', ['comments' => $comments])
 @endsection
