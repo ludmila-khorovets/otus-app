@@ -8,7 +8,7 @@
                 <div class="single-work-left">
                     <h4 class="single-main-title-heading">{{ $hall['name'] }}</h4>
                     <div class="single-left-grid">
-                        <div  class="single-left-item">
+                        <div class="single-left-item">
                             <h5 class="single-detail-heading">Описание</h5>
                             <div class="single-details-text">{{ $hall['description'] }}</div>
                         </div>
@@ -20,7 +20,6 @@
                             </div>
                         </div>
                     </div>
-                    <a href="" target="_blank" class="button w-button">Забронировать</a>
                 </div>
                 <div class="single-work-right">
                     <img
@@ -32,5 +31,4 @@
             </div>
         </div>
     </div>
-    @include('components.comments-section', ['comments' => $comments])
 @endsection

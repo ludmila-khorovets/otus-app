@@ -16,9 +16,7 @@
         'resources/css/normalize.css',
         'resources/css/layout.css',
         'resources/css/style.css',
-        'resources/js/jquery.min.js',
-        'resources/js/plugins.js',
-        'resources/js/bootstrap.js'
+        'resources/js/app.js'
     ])
 </head>
 
@@ -41,6 +39,7 @@
     </div>
 </div>
 
+@include('partials.alerts')
 <div class="w-layout-blockcontainer main-container w-container">
     @yield('content')
 </div>

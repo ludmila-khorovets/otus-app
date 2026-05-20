@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\BookingController as AdminBookingController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\HallController as AdminHallController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\HallController;
 use App\Http\Controllers\HomeController;
@@ -28,3 +31,10 @@ Route::get('/register', function () {
 })->name('auth.register');
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+
+Route::name('admin.')->prefix('admin')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/bookings', [AdminBookingController::class, 'index'])->name('booking.index');
+    Route::patch('/bookings/{booking}/status', [AdminBookingController::class, 'statusUpdate'])->name('booking.status');
+    Route::resource('halls', AdminHallController::class)->names('halls');
+});

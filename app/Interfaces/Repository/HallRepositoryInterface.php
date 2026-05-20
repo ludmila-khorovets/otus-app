@@ -22,4 +22,12 @@ interface HallRepositoryInterface
     public function getComments(Hall $hall): BaseCollection;
 
     public function isBusy(int $hallId, string $startAt, string $endAt): bool;
+
+    public function update(Hall $hall, array $data): bool;
+
+    public function delete(Hall $hall): bool;
+
+    public function create(array $data): Hall;
+
+    public function hasActiveBookingsHall(Hall $hall): bool;
 }

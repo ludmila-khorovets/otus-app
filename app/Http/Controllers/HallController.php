@@ -14,7 +14,8 @@ class HallController extends Controller
 
     public function index()
     {
-        $halls = $this->hallRepository->getAll();
+        $halls = $this->hallRepository->getAll(true);
+
         return view('halls', compact('halls'));
     }
 
@@ -23,6 +24,7 @@ class HallController extends Controller
         $hall = $this->hallRepository->findOrFail($id);
         $prices = $this->hallRepository->getPrices($hall);
         $comments = $this->hallRepository->getComments($hall);
+
         return view('halls.show', compact('hall', 'prices', 'comments'));
     }
 }

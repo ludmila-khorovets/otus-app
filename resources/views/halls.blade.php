@@ -10,7 +10,7 @@
                         href="{{ route('halls.show', $hall['id']) }}"
                         class="work-item w-inline-block"
                     >
-                        <div class="work-img-wrapp"><img src="{{ Vite::asset('resources/images/' . $hall['image']) }}"
+                        <div class="work-img-wrapp"><img src="{{ asset('storage/' . $hall->image) }}"
                                                          alt="" class="work-img"/></div>
                         <h4 class="heading">{{ $hall['name'] }}</h4>
                         <div class="work-category">от {{ $hall['price_weekday'] }} р/час</div>

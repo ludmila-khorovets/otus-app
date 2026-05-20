@@ -12,11 +12,15 @@ use Illuminate\Support\Collection as BaseCollection;
 
 class HallRepository implements HallRepositoryInterface
 {
-    public function getAll(): EloquentCollection
+    public function getAll(?bool $activeStatus = null): EloquentCollection
     {
-        return Hall::where('is_active', true)
-            ->latest()
-            ->get();
+        $query = Hall::latest();
+
+        if ($activeStatus !== null) {
+            $query->where('is_active', $activeStatus);
+        }
+
+        return $query->get();
     }
 
     public function findOrFail(int $id): Hall
@@ -55,6 +59,28 @@ class HallRepository implements HallRepositoryInterface
             ->where('status', BookingStatus::CONFIRMED)
             ->where('start_at', '<', $endAt)
             ->where('end_at', '>', $startAt)
+            ->exists();
+    }
+
+    public function update(Hall $hall, array $data): bool
+    {
+        return $hall->update($data);
+    }
+
+    public function delete(Hall $hall): bool
+    {
+        return $hall->delete($hall);
+    }
+
+    public function create(array $data): Hall
+    {
+        return Hall::create($data);
+    }
+
+    public function hasActiveBookingsHall(Hall $hall): bool
+    {
+        return $hall->bookings()
+            ->where('bookings.status', BookingStatus::CONFIRMED)
             ->exists();
     }
 }

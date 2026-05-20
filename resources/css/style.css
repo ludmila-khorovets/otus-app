@@ -3525,3 +3525,71 @@ blockquote {
         height: 30px;
     }
 }
+
+.luna-admin-panel {
+    background: rgba(15, 15, 25, 0.4) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.luna-panel-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 0.5px;
+}
+
+.luna-tile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 12px;
+    text-decoration: none !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.luna-tile:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(13, 202, 240, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(13, 202, 240, 0.05);
+}
+
+.luna-tile-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    transition: transform 0.2s ease;
+}
+
+.luna-tile:hover .luna-tile-icon {
+    transform: scale(1.05);
+}
+
+.luna-tile-info {
+    display: flex;
+    flex-column: column;
+    gap: 2px;
+}
+
+.luna-tile-name {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.luna-tile-desc {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.75rem;
+    line-height: 1.2;
+}

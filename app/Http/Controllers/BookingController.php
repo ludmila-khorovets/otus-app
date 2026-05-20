@@ -20,7 +20,7 @@ class BookingController extends Controller
 
     public function index()
     {
-        $halls = $this->hallRepository->getAll();
+        $halls = $this->hallRepository->getAll(true);
         $categories = $this->equipmentRepository->getAll();
 
         return view('bookings.index', compact('halls', 'categories'));
