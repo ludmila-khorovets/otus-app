@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\BookingStatus;
-use App\Http\Requests\Requests\StoreBookingsRequest;
+use App\Http\Requests\StoreBookingsRequest;
 use App\Models\Booking;
 use App\Models\Equipment;
 use App\Repositories\EquipmentRepository;
@@ -22,6 +22,7 @@ class BookingController extends Controller
     {
         $halls = $this->hallRepository->getAll();
         $categories = $this->equipmentRepository->getAll();
+
         return view('bookings.index', compact('halls', 'categories'));
     }
 
