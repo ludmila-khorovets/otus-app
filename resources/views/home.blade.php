@@ -20,7 +20,7 @@
 
             <div class="main-title-box">
                 <h2 class="main-title">Наши залы</h2>
-                <a href="" class="all-projects">Все залы</a>
+                <a href="{{ route('halls') }}" class="all-projects">Все залы</a>
             </div>
 
             <div class="work-wrapper w-dyn-list">
@@ -32,7 +32,7 @@
                                 href="{{ route('halls.show', $hall['id']) }}"
                                 class="work-item w-inline-block"
                             >
-                                <div class="work-img-wrapp"><img src="{{ Vite::asset('resources/images/' . $hall['image']) }}"
+                                <div class="work-img-wrapp"><img src="{{ asset('storage/' . $hall->image) }}"
                                                                  alt="" class="work-img"/></div>
                                 <h4 class="heading">{{ $hall['name'] }}</h4>
                                 <div class="work-category">от {{ $hall['price_weekday'] }} р/час</div>
@@ -43,4 +43,6 @@
             </div>
         </div>
     </div>
+
+    @include('components.comments-section', ['comments' => $comments])
 @endsection

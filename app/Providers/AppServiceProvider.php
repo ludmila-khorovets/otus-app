@@ -2,6 +2,13 @@
 
 namespace App\Providers;
 
+use App\Interfaces\Repository\BookingRepositoryInterface;
+use App\Interfaces\Repository\EquipmentRepositoryInterface;
+use App\Interfaces\Repository\HallRepositoryInterface;
+use App\Repositories\BookingRepository;
+use App\Repositories\EquipmentRepository;
+use App\Repositories\HallRepository;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +18,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(HallRepositoryInterface::class, HallRepository::class);
+        $this->app->bind(BookingRepositoryInterface::class, BookingRepository::class);
+        $this->app->bind(EquipmentRepositoryInterface::class, EquipmentRepository::class);
     }
 
     /**
@@ -19,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Model::preventLazyLoading(!$this->app->isProduction());
+        Model::preventSilentlyDiscardingAttributes(!$this->app->isProduction());
     }
 }

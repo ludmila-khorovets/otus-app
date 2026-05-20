@@ -76,32 +76,35 @@
                 <h3 class="bookings-title">Мои бронирования</h3>
 
                 <div class="bookings-list">
-                    <div class="booking-item">
-                        <div class="booking-info">
-                            <span class="booking-hall">Premium Studio</span>
-                            <span class="booking-date">25.12.2024 | 14:00 - 17:00</span>
-                            <span class="booking-status status-confirmed">Подтверждено</span>
-                        </div>
-                        <button class="booking-cancel-btn">Отменить</button>
-                    </div>
+                    @foreach($bookings as $book)
+                        <div class="booking-item">
+                            <div class="booking-info">
+                                <span class="booking-hall">{{ $book->hall->name }}</span>
+                                <span class="booking-date">{{ $book->date_time_range }}</span>
 
-                    <div class="booking-item">
-                        <div class="booking-info">
-                            <span class="booking-hall">Loft Space</span>
-                            <span class="booking-date">28.12.2024 | 10:00 - 13:00</span>
-                            <span class="booking-status status-pending">Ожидает</span>
-                        </div>
-                        <button class="booking-cancel-btn">Отменить</button>
-                    </div>
+                                @if($book->equipment->isNotEmpty())
+                                    <div class="booking-equipment"
+                                         style="font-size: 0.8em; color: #adb5bd; margin-top: 10px;">
+                                        <strong>Оборудование:</strong>
+                                        <ul style="list-style: none; padding: 0;">
+                                            @foreach($book->equipment as $equipment)
+                                                <li>
+                                                    {{ $equipment->name }}
+                                                    ({{ $equipment->pivot->quantity }} шт.) —
+                                                    {{ $equipment->pivot->hours }} ч
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
 
-                    <div class="booking-item">
-                        <div class="booking-info">
-                            <span class="booking-hall">Minimal White</span>
-                            <span class="booking-date">10.01.2025 | 15:00 - 18:00</span>
-                            <span class="booking-status status-completed">Завершено</span>
+                                <span
+                                    class="booking-status {{ $book->status->cssClass() }}">{{ $book->status->label() }}</span>
+                            </div>
+                            <button class="booking-cancel-btn">Отменить</button>
                         </div>
-                        <button class="booking-cancel-btn disabled" disabled>Отменить</button>
-                    </div>
+                    @endforeach
+
                 </div>
             </div>
 

@@ -13,19 +13,18 @@
                             <div class="single-details-text">{{ $hall['description'] }}</div>
                         </div>
                         <div class="single-left-item">
-                            <h5 class="single-detail-heading">Оборудование</h5>
-                            <div class="single-details-text">{{ $hall['equipment'] }}</div>
-                        </div>
-                        <div class="single-left-item">
                             <h5 class="single-detail-heading">Цена</h5>
-                            <div class="single-details-text">{{ $hall['cost'] }} руб/час</div>
+                            <div class="single-details-text">
+                                <p><strong>{{ $prices['weekday'] }}</strong> час будни </p>
+                                <p><strong>{{ $prices['weekend'] }}</strong> час выходные</p>
+                            </div>
                         </div>
                     </div>
                     <a href="" target="_blank" class="button w-button">Забронировать</a>
                 </div>
                 <div class="single-work-right">
                     <img
-                        src="{{ Vite::asset('resources/images/' . $hall['image']) }}"
+                        src="{{ asset('storage/' . $hall->image) }}"
                         alt=""
                         class="single-main-work-img"
                     />
@@ -33,4 +32,5 @@
             </div>
         </div>
     </div>
+    @include('components.comments-section', ['comments' => $comments])
 @endsection
